@@ -49,7 +49,7 @@ public class ApiUsersLoginController extends BaseFormController {
 		if (u == null) {
 			root.setMessage(1, "用户名或密码错误");
 		} else {
-			ServletContext context = request.getServletContext();
+			ServletContext context = request.getSession().getServletContext();
 			//存储用户登陆信息,KEY=Token,VALUE=User
 			Map<String, Users> userMap = (Map<String, Users>) context.getAttribute("USERMAP");
 			//存储用户登陆时间,KEY=Token,VALUE=上次访问时间
@@ -76,7 +76,7 @@ public class ApiUsersLoginController extends BaseFormController {
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public @ResponseBody Root userLogout(HttpServletRequest request, HttpServletResponse response) {
 		String token = request.getHeader("TOKENID");
-		ServletContext context = request.getServletContext();
+		ServletContext context = request.getSession().getServletContext();
 		Map<String, Long> tokenMap = (Map<String, Long>) context.getAttribute("TOKENMAP");
 		if (tokenMap == null) {
 			tokenMap = new HashMap<String, Long>();

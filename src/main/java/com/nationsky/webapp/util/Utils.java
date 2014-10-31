@@ -42,7 +42,7 @@ public class Utils {
 		if (request == null || token == null || token.equals("")) {
 			return null;
 		}
-		ServletContext context = request.getServletContext();
+		ServletContext context = request.getSession().getServletContext();
 		Map<String, Users> userMap = (Map<String, Users>) context.getAttribute("USERMAP");
 		if (userMap != null || userMap.size() > 0) {
 			return userMap.get(token);

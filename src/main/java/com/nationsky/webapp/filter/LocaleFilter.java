@@ -62,7 +62,7 @@ public class LocaleFilter extends OncePerRequestFilter {
 				response.getWriter().write("-999");
 				return;
 			}
-			ServletContext context = request.getServletContext();
+			ServletContext context = request.getSession().getServletContext();
 			Map<String, Long> tokenMap = (Map<String, Long>) context.getAttribute("TOKENMAP");
 			if (tokenMap == null) {
 				tokenMap = new HashMap<String, Long>();
