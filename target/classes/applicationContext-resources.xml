@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<!-- For mail settings and future properties files -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:mail.properties</value>
+				<value>classpath:hibernate.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- JNDI DataSource for J2EE environments -->
+	<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/appfuse"/> -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/emm_backend?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+		<!-- 初始化连接 -->
+		<property name="initialSize" value="8"></property>
+		<!-- 最大连接数量 -->
+		<property name="maxActive" value="500" />
+		<!-- 超时等待时间以毫秒为单位 -->
+		<property name="maxWait" value="3000" />
+		<!-- 最大空闲连接 -->
+		<property name="maxIdle" value="10" />
+		<!-- 最小空闲连接 -->
+		<property name="minIdle" value="3"></property>
+		<property name="poolPreparedStatements" value="true" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="validationQuery" value="SELECT 1 + 1" />
+		<property name="testOnBorrow" value="true" />
+
+
+	</bean>
+</beans>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Title: AppFuse Spring MVC Application
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: com.nationsky
+Build-Jdk: 1.6.0_43
+Built-By: Administrator
+Created-By: Maven Integration for Eclipse
+

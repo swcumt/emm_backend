@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+    <Displayers>
+        <Displayer name="Velocity" type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    </Displayers>
+    <Menus>
+        <Menu name="Home" title="home.title" page="/home" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/userform" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" page="/admin/users">
+            <Item name="ViewUsers" title="menu.admin.users" page="/admin/users"/>
+            <Item name="ActiveUsers" title="home.activeUsers" page="/admin/activeUsers"/>
+            <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload"/>
+            <Item name="FileUpload" title="menu.selectFile" page="/fileupload"/>
+        </Menu>
+        <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
+        <!--Users-START-->
+        <Menu name="UsersMenu" title="usersList.title" page="/userss"/>
+        <!--Users-END-->
+        <!--FullTrialCode-START-->
+        <Menu name="FullTrialCodeMenu" title="fullTrialCodeList.title" page="/fullTrialCodes"/>
+        <!--FullTrialCode-END-->
+        <!--Version-START-->
+        <Menu name="VersionMenu" title="versionList.title" page="/versions"/>
+        <!--Version-END-->
+         <!--AppStore-START-->
+        <Menu name="AppStoreMenu" title="appStoreList.title" page="/appStores"/>
+        <!--AppStore-END-->
+        <!--AppstoreEdition-START-->
+        <Menu name="AppstoreEditionMenu" title="appstoreEditionList.title" page="/appstoreEditions"/>
+        <!--AppstoreEdition-END-->
+        <!--AComment-START-->
+        <Menu name="ACommentMenu" title="aCommentList.title" page="/aComments"/>
+        <!--AComment-END-->
+        <!--Schedule-START-->
+        <Menu name="ScheduleMenu" title="scheduleList.title" page="/schedules"/>
+        <!--Schedule-END-->
+        <!--ScheduleList-START-->
+        <Menu name="ScheduleListMenu" title="scheduleListList.title" page="/scheduleLists"/>
+        <!--ScheduleList-END-->
+        <!--ScheduleListUser-START-->
+        <Menu name="ScheduleListUserMenu" title="scheduleListUserList.title" page="/scheduleListUsers"/>
+        <!--ScheduleListUser-END-->
+        <!--ScheduleUser-START-->
+        <Menu name="ScheduleUserMenu" title="scheduleUserList.title" page="/scheduleUsers"/>
+        <!--ScheduleUser-END-->
+    </Menus>
+
+
+
+
+
+
+
+
+</MenuConfig>
