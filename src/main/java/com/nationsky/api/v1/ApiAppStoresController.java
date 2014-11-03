@@ -182,15 +182,15 @@ public class ApiAppStoresController extends BaseFormController {
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/list")
 	public @ResponseBody
-	Root list(String pageSize,HttpServletRequest request,Long projectId) {
+	Root list(String pageSize,HttpServletRequest request,Long projectId,Long osId) {
 //		Page page = appStoreManager.getAppStore(pageSize);
 		Page page;
 		if (projectId != null && !projectId.toString().equals("")){
 			//查询项目下所有应用
-			page = appStoreManager.getAppStoreByProject(pageSize,projectId);
+			page = appStoreManager.getAppStoreByProject(pageSize,projectId,osId);
 		}else{
 			//查询用户下所有应用
-			page = appStoreManager.getAppStoreByUser(pageSize,Utils.getUser(request).getId());
+			page = appStoreManager.getAppStoreByUser(pageSize,Utils.getUser(request).getId(),osId);
 		}
 		for (int i = 0; i < page.getObjList().size(); i++) {
 			AppStore appStore = (AppStore) page.getObjList().get(i);

@@ -102,9 +102,15 @@ public class AppStoreDaoHibernate extends GenericDaoHibernate<AppStore, Long> im
 		return page;
 	}
 	@Override
-	public Page getAppStoreByProject(String pageSize,Long projectId) {
-		String hql = " from AppStore where appProject.id = '"+projectId+"') order by id desc ";
-		Query query = getSession().createQuery(hql);
+	public Page getAppStoreByProject(String pageSize,Long projectId,Long osId) {
+		//String hql = " from AppStore where appProject.id = '"+projectId+"') order by id desc ";
+		//System.out.println(osId);
+		StringBuffer hql = new StringBuffer(" from AppStore where 1=1 ");
+		hql.append(" and appProject.id = '"+projectId+"' ");
+		if(osId != null)
+			hql.append(" and codeOs.id ='"+osId+"' ");
+		hql.append(" order by id desc ");
+		Query query = getSession().createQuery(hql.toString());
 		int size = query.list().size();
 		if(null != pageSize){
 			query.setMaxResults(Integer.valueOf(Utils.getPropertiesValue("perSize")));
@@ -117,9 +123,15 @@ public class AppStoreDaoHibernate extends GenericDaoHibernate<AppStore, Long> im
 		return page;
 	}
 	@Override
-	public Page getAppStoreByUser(String pageSize,Long userId) {
-			String hql = " from AppStore where appProject.id in (select id from AppProject where users.id='"+userId+"') order by id desc ";
-			Query query = getSession().createQuery(hql);
+	public Page getAppStoreByUser(String pageSize,Long userId,Long osId) {
+			//String hql = " from AppStore where appProject.id in (select id from AppProject where users.id='"+userId+"') order by id desc ";
+			//System.out.println(osId);
+			StringBuffer hql = new StringBuffer(" from AppStore where 1=1 ");
+			hql.append(" and appProject.id in (select id from AppProject where users.id='"+userId+"') ");
+			if(osId != null)
+				hql.append(" and codeOs.id ='"+osId+"' ");
+			hql.append(" order by id desc ");
+			Query query = getSession().createQuery(hql.toString());
 			int size = query.list().size();
 			if(null != pageSize){
 				query.setMaxResults(Integer.valueOf(Utils.getPropertiesValue("perSize")));

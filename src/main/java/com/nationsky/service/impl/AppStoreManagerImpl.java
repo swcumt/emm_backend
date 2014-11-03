@@ -69,12 +69,12 @@ public class AppStoreManagerImpl extends GenericManagerImpl<AppStore, Long> impl
 	}
 
 	@Override
-	public Page getAppStoreByUser(String pageSize, Long userId) {
-		return appStoreDao.getAppStoreByUser(pageSize, userId);
+	public Page getAppStoreByUser(String pageSize, Long userId,Long osId) {
+		return appStoreDao.getAppStoreByUser(pageSize, userId,osId);
 	}
 
 	@Override
-	public Page getAppStoreByProject(String pageSize, Long projectId) {
-		return appStoreDao.getAppStoreByProject(pageSize, projectId);
+	public Page getAppStoreByProject(String pageSize, Long projectId,Long osId) {
+		return appStoreDao.getAppStoreByProject(pageSize, projectId,osId);
 	}
 }

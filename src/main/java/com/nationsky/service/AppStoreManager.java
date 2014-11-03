@@ -26,13 +26,15 @@ public interface AppStoreManager extends GenericManager<AppStore, Long> {
 	
 	/**
 	 * 应用列表
+	 * @param osId 
 	 * @return
 	 */
-	public Page getAppStoreByProject(String pageSize,Long projectId);
+	public Page getAppStoreByProject(String pageSize,Long projectId, Long osId);
 	
 	/**
 	 * 应用列表
+	 * @param osId 
 	 * @return
 	 */
-	public Page getAppStoreByUser(String pageSize,Long userId);
+	public Page getAppStoreByUser(String pageSize,Long userId, Long osId);
 }
