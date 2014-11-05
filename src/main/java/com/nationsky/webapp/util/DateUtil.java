@@ -1,4 +1,4 @@
-﻿package com.nationsky.webapp.util;
+package com.nationsky.webapp.util;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
